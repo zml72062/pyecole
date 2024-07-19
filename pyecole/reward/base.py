@@ -1,10 +1,17 @@
 import ecole.typing
 import math
+from ..scip import Model
 from ..typing import RewardFunction
 
 class BaseRewardFunction(RewardFunction):
     def __init__(self, data: ecole.typing.RewardFunction) -> None:
         self.data = data
+
+    def before_reset(self, model: Model) -> None:
+        self.data.before_reset(model.model)
+
+    def extract(self, model: Model, done: bool = False) -> float:
+        return self.data.extract(model.model, done)
     
     def __add__(self, other) -> RewardFunction:
         return BaseRewardFunction(self.data.__add__(other))

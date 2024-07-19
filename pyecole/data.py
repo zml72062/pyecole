@@ -39,35 +39,38 @@ class ConstantFunction(DataFunction):
 
 class VectorFunction(DataFunction):
     def __init__(self, *args) -> None:
-        self.func = ecole.data.VectorFunction(*args)
+        self.funcs = args
 
     def before_reset(self, model: Model) -> None:
         """
         Call `before_reset()` on all data extraction functions.
         """
-        self.func.before_reset(model.model)
+        for func in self.funcs:
+            func.before_reset(model)
     
     def extract(self, model: Model, done: bool) -> List[object]:
         """
         Return data from all functions as a tuple.
         """
-        return self.func.extract(model.model, done)
+        return [func.extract(model, done) for func in self.funcs]
 
 class MapFunction(DataFunction):
     def __init__(self, **kwargs) -> None:
-        self.func = ecole.data.MapFunction(**kwargs)
+        self.funcs = kwargs
 
     def before_reset(self, model: Model) -> None:
         """
         Call `before_reset()` on all data extraction functions.
         """
-        self.func.before_reset(model.model)
-    
+        for func in self.funcs.values():
+            func.before_reset(model)
+
     def extract(self, model: Model, done: bool) -> Dict[str, object]:
         """
         Return data from all functions as a dict.
         """
-        return self.func.extract(model.model, done)
+        return {key: func.extract(model, done) 
+                for key, func in self.funcs.items()}
 
 
 def parse(something, default):

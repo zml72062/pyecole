@@ -13,3 +13,11 @@ conda create -n ml4co python==3.8
 conda activate ml4co
 conda install -c conda-forge ecole=0.7.3 scip=7.0.3 pyscipopt=3.3.0
 ```
+
+Then run the following script to install `pyecole`.
+
+```sh
+git clone https://github.com/zml72062/pyecole
+cd pyecole
+python setup.py install
+```

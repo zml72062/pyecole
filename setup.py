@@ -16,5 +16,6 @@ setup(
     description = ("Python wrapper for Ecole."),
     url = "https://github.com/zml72062/pyecole",
     packages=find_packages(include=["pyecole", "pyecole.*"]),
+    zip_safe=False,
     long_description=read('README.md'),
 )

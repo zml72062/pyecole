@@ -47,7 +47,7 @@ class ConfiguringDynamics(Dynamics):
             rng:
                 The source of randomness. Passed by the environment.
         """
-        self.dyn.set_dynamics_random_state(model.model, rng)
+        self.dyn.set_dynamics_random_state(model.model, rng.generator)
 
     def step_dynamics(self, model: Model, 
                       action: Dict[str, Union[bool, int, float, str]]
