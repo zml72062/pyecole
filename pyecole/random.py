@@ -7,7 +7,7 @@ class RandomEngine:
         Construct the pseudo-random number generator.
         """
         if value is not None:
-            self.generator = ecole.RandomEngine(value)
+            self.generator = ecole.RandomGenerator(value)
     
     def seed(self, value: int = 5489) -> None:
         """
@@ -45,6 +45,6 @@ def spawn_random_engine() -> RandomEngine:
     successively have different states.
     """
     rng = RandomEngine(value=None)
-    rng.generator = ecole.spawn_random_engine()
+    rng.generator = ecole.spawn_random_generator()
     return rng
 

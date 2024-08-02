@@ -77,7 +77,7 @@ class NodeBipartiteObs:
         problem (`SCIPvarGetProbindex`), hence they can be indexed by the 
         `Branching` environment `action_set`.
         """
-        return self.data.column_features
+        return self.data.variable_features
     
 
 class NodeBipartite(ObservationFunction):
