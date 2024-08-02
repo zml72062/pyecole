@@ -66,6 +66,8 @@ class NodeBipartiteObs:
         is_basis_basic = 16
         is_basis_upper = 17
         is_basis_zero = 18
+        lower_bound = 19
+        upper_bound = 20
 
     @property
     def column_features(self) -> np.ndarray:
