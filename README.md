@@ -6,9 +6,9 @@ PyEcole is merely a Python wrapper for Ecole that provides programmer-friendly f
 
 ## Getting started
 
-For environment setup, please refer to the [contribution guidelines](https://doc.ecole.ai/py/en/stable/contributing.html) of Ecole. First, clone the github repository of Ecole:
+For environment setup, please refer to the [contribution guidelines](https://doc.ecole.ai/py/en/stable/contributing.html) of Ecole. First, clone the github repository of Ecole: (a fork of the official release)
 ```sh
-git clone https://github.com/ds4dm/ecole
+git clone https://github.com/zml72062/ecole
 ```
 At the root directory of the repository, run the following commands to tidy up dependencies for Ecole:
 ```sh
